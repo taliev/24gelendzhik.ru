@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>Морская рыбалка в Геленджике</title>
+  <!-- Шрифт для красоты -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f7f9fc;
+      color: #0b2b3c;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ГЕРОЙ С БАННЕРОМ (по центру) */
+    .hero {
+      background: linear-gradient(145deg, #0a2a38 0%, #154c5e 100%);
+      padding: 40px 0 50px;
+      text-align: center;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 12px 30px rgba(0, 20, 30, 0.3);
+      margin-bottom: 40px;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      margin-bottom: 12px;
+    }
+
+    .hero .subhead {
+      color: #b3d9e8;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+      letter-spacing: 0.3px;
+    }
+
+    /* БАННЕР ПО СЕРЕДИНЕ */
+    .banner-wrap {
+      max-width: 880px;
+      margin: 0 auto 18px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s ease;
+      background: #0d2e3b;
+      line-height: 0;
+    }
+
+    .banner-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero .contacts-mini {
+      margin-top: 16px;
+      color: #d7ecf5;
+      font-size: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px 30px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(2px);
+      padding: 12px 24px;
+      border-radius: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .hero .contacts-mini span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero .contacts-mini i {
+      font-style: normal;
+      font-weight: 600;
+      color: #ffd966;
+    }
+
+    /* КАРТОЧКИ ПРЕИМУЩЕСТВ */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin: 40px 0 48px;
+    }
+
+    .feature-item {
+      background: white;
+      padding: 24px 16px;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0, 30, 40, 0.08);
+      text-align: center;
+      transition: transform 0.15s ease, box-shadow 0.2s;
+      border: 1px solid rgba(10, 70, 90, 0.06);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(0, 40, 55, 0.12);
+    }
+
+    .feature-item .emoji-big {
+      font-size: 2.8rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .feature-item h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0c3e4f;
+      margin-bottom: 6px;
+    }
+
+    .feature-item p {
+      font-size: 0.95rem;
+      color: #2d5a6b;
+      font-weight: 400;
+    }
+
+    .feature-item .badge {
+      background: #eaf3f8;
+      padding: 4px 12px;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #005073;
+      display: inline-block;
+      margin-top: 8px;
+    }
+
+    /* БЛОК С РЫБОЙ И ОПИСАНИЕМ */
+    .fish-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 30px;
+      background: white;
+      border-radius: 40px;
+      padding: 28px 30px;
+      margin: 40px 0 48px;
+      box-shadow: 0 6px 20px rgba(0, 30, 40, 0.06);
+      border: 1px solid rgba(0, 70, 90, 0.08);
+    }
+
+    .fish-block .fish-img {
+      flex: 1 1 240px;
+      border-radius: 32px;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 20, 30, 0.15);
+      line-height: 0;
+    }
+
+    .fish-block .fish-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .fish-block .fish-img img:hover {
+      transform: scale(1.02);
+    }
+
+    .fish-block .fish-desc {
+      flex: 2 1 280px;
+    }
+
+    .fish-desc h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #08303e;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .fish-desc .highlight {
+      color: #b16f2a;
+      font-weight: 600;
+    }
+
+    .fish-desc p {
+      font-size: 1rem;
+      color: #1f495b;
+      margin-bottom: 12px;
+    }
+
+    .fish-desc .fish-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin: 16px 0 10px;
+    }
+
+    .fish-tags span {
+      background: #e2eef5;
+      padding: 6px 18px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #004158;
+    }
+
+    /* КНОПКА ВК */
+    .vk-button-wrap {
+      text-align: center;
+      margin: 30px 0 50px;
+    }
+
+    .vk-btn {
+      display: inline-block;
+      background: #4a76a8;
+      background: linear-gradient(145deg, #4d7db3, #3b6390);
+      padding: 18px 44px;
+      border-radius: 80px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: white !important;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(50, 90, 130, 0.3);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      letter-spacing: 0.3px;
+    }
+
+    .vk-btn:hover {
+      background: #3f6d9c;
+      background: linear-gradient(145deg, #3f6d9c, #2f5780);
+      transform: scale(1.02);
+      box-shadow: 0 16px 32px rgba(40, 80, 130, 0.4);
+      color: white;
+    }
+
+    .vk-btn i {
+      font-style: normal;
+      margin-right: 10px;
+      font-weight: 400;
+    }
+
+    /* ДОПОЛНИТЕЛЬНАЯ ИНФО */
+    .info-note {
+      background: #e5f0f5;
+      border-radius: 60px;
+      padding: 16px 28px;
+      display: inline-block;
+      margin: 10px auto 20px;
+      font-size: 0.95rem;
+      color: #0d3b4b;
+      border: 1px solid #c7dce7;
+    }
+
+    /* АДАПТИВ */
+    @media (max-width: 700px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero .contacts-mini {
+        flex-direction: column;
+        gap: 6px;
+        border-radius: 30px;
+        padding: 14px 16px;
+        max-width: 100%;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .fish-block {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .fish-block .fish-desc {
+        text-align: left;
+      }
+
+      .fish-desc h2 {
+        font-size: 1.5rem;
+      }
+
+      .vk-btn {
+        padding: 14px 30px;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .banner-wrap {
+        border-radius: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 24px 0 30px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .hero h1 {
+        font-size: 1.5rem;
+      }
+
+      .fish-block {
+        padding: 16px;
+      }
+
+      .fish-desc h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* маленький декоративный элемент */
+    .wave-divider {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #9bbccd;
+      letter-spacing: 4px;
+      margin: 10px 0 -10px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="container">
+      <h1>⛵ Морская рыбалка в Геленджике</h1>
+      <div class="subhead">Катер от собственника · 8 мест · Всё включено</div>
+
+      <!-- БАННЕР ПО СЕРЕДИНЕ (файл 111.png) -->
+      <div class="banner-wrap">
+        <img src="111.png" alt="Морская рыбалка Геленджик, катер, контакты">
+      </div>
+
+      <!-- контакты из баннера дублируем для удобства (как на 111.png) -->
+      <div class="contacts-mini">
+        <span>📞 <i>+7 (938) 555-67-8х10</i></span>
+        <span>📱 <i>WhatsApp / Telegram</i></span>
+        <span>📍 <i>Геленджик, ул. Приморская</i></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- СЕТКА ПРЕИМУЩЕСТВ -->
+    <div class="features-grid">
+      <div class="feature-item">
+        <span class="emoji-big">🎣</span>
+        <h3>8 мест</h3>
+        <p>Комфортный катер, просторно для всей компании</p>
+        <span class="badge">только свои</span>
+      </div>
+      <div class="feature-item">
+        <span class="emoji-big">⚓</span>
+        <h3>3 часа в море</h3>
+        <p>Открытое море, лучшие точки для улова</p>
+      </div>
+      <div class="feature-item">
+        <span class="emoji-big">🎯</span>
+        <h3>Снасти + обучение</h3>
+        <p>Удочки, оснастка и инструктор на борту</p>
+      </div>
+      <div class="feature-item">
+        <span class="emoji-big">🚽</span>
+        <h3>Туалет и диваны</h3>
+        <p>Мягкие диваны, санитарный узел – полный комфорт</p>
+      </div>
+    </div>
+
+    <!-- БЛОК С РЫБОЙ (steve_fish.jpg) -->
+    <div class="fish-block">
+      <div class="fish-img">
+        <img src="steve_fish.jpg" alt="Пойманная рыба, засолка и жарка на борту">
+      </div>
+      <div class="fish-desc">
+        <h2>🐟 Свежая рыба <br>прямо на борту</h2>
+        <p>
+          Пойманную рыбу можно <span class="highlight">засолить</span> или 
+          <span class="highlight">пожарить</span> прямо на катере! 
+          Оцените вкус улова через 15 минут после поклёвки.
+        </p>
+        <div class="fish-tags">
+          <span>🔥 горячее копчение</span>
+          <span>🧂 засолка</span>
+          <span>🍳 жарка</span>
+        </div>
+        <p style="margin-top: 8px; font-weight: 400; color: #1b4e61;">
+          <span style="background: #dcebf2; padding: 2px 14px; border-radius: 40px;">⚡ входит в стоимость</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- КНОПКА ПЕРЕХОДА В ВК -->
+    <div class="vk-button-wrap">
+      <a href="https://vk.ru/gelfishing" target="_blank" class="vk-btn">
+        <i>🔹</i> Подробнее в группе ВК
+      </a>
+      <div style="margin-top: 12px; font-size: 0.9rem; color: #3d6f83;">
+        Переходите, чтобы узнать расписание и забронировать
+      </div>
+    </div>
+
+    <!-- маленькая доп. информация -->
+    <div style="display: flex; justify-content: center; margin: 10px 0 30px;">
+      <div class="info-note">
+        ⛵ Катер от собственника · 8 мест · Удочки, снасти, обучение — включены
+      </div>
+    </div>
+
+    <div class="wave-divider">~~~~~ ~~~~~ ~~~~~</div>
+    <div style="text-align: center; padding: 20px 0 30px; color: #386f84; font-size: 0.85rem;">
+      © Морская рыбалка Геленджик · открытое море · комфорт и улов
+    </div>
+  </div>
+
+</body>
+</html>
